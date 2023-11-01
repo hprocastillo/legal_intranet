@@ -1,0 +1,72 @@
+<div class="container pt-3">
+
+  <!-- HEADER -->
+  <div class="row mb-3">
+    <div class="col-xl-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item fs-5"><a class="text-decoration-none text-dark" [routerLink]="'/home'">Atrás</a>
+          </li>
+          <li class="breadcrumb-item fs-5 fw-bold active" aria-current="page">Mensajes</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="col-xl-8 text-end">
+      <div class="row">
+        <div class="col-xl-3 offset-xl-1">
+          <!-- DATE -->
+          <input type="date" class="form-control" [value]="today | date:'yyyy-MM-dd'">
+        </div>
+        <div class="col-xl-6">
+          <!-- SEARCH -->
+          <input type="text" class="form-control" placeholder="Buscar por nombre o correo electrónico">
+        </div>
+        <div class="col-xl-2">
+          <!-- BTN EXCEL -->
+          <button type="button" class="btn btn-success d-flex">
+            <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+            Exportar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="row">
+    <div class="col-xl-12">
+
+      <div class="card shadow rounded p-3 border-0">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col"></th>
+              <th scope="col">NOMBRES Y APELLIDOS</th>
+              <th scope="col">CORREO ELECTRÓNICO</th>
+              <th scope="col">TELÉFONO</th>
+              <th scope="col">RECIBIDO</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let m of listMessages; index as i">
+              <th scope="row">{{i + 1}}</th>
+              <td>
+                <button type="button" class="btn btn-primary" (click)="getMessage(m)">
+                  <i class="bi bi-envelope-fill"></i>
+                </button>
+              </td>
+              <td>{{m.fullName}}</td>
+              <td>{{m.email}}</td>
+              <td>{{m.phone}}</td>
+              <td>{{m.createdAt.toMillis() | date:'fullDate'}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

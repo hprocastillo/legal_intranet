@@ -1,0 +1,27 @@
+<ng-container *ngIf="authService.user$ | async as firebaseUser">
+
+  <!-- TEMPLATE LIST -->
+  <app-messages-list
+    *ngIf="template === 'LIST'"
+    (outTemplate)="getTemplate($event)"
+    (messageToView)="getMessage($event)"
+  ></app-messages-list>
+
+
+  <!-- TEMPLATE NEW -->
+  <app-messages-new
+    *ngIf="template === 'NEW'"
+    [firebaseUser]="firebaseUser"
+    (outTemplate)="getTemplate($event)"
+  ></app-messages-new>
+
+
+  <!-- TEMPLATE VIEW -->
+  <app-messages-view
+    *ngIf="template === 'VIEW'"
+    [message]="messageToView"
+    (outTemplate)="getTemplate($event)"
+  ></app-messages-view>
+
+
+</ng-container>

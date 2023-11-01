@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "legalIntranet",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

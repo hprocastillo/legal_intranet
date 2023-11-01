@@ -1,0 +1,59 @@
+<div class="container pt-3">
+
+  <!-- HEADER -->
+  <div class="row mb-3">
+    <div class="col-xl-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item fs-5 cursor-pointer">
+            <a class="text-decoration-none text-dark" (click)="getTemplate('LIST')">Atrás</a>
+          </li>
+          <li class="breadcrumb-item fs-5 fw-bold active" aria-current="page">Mensaje</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="col-xl-8 text-end">
+      <!-- BTN PRINT -->
+      <button type="button" class="btn btn-secondary">
+        <i class="bi bi-printer-fill"></i>
+        Imprimir
+      </button>
+    </div>
+  </div>
+
+  <!-- MESSAGE -->
+  <div class="row">
+    <div class="col-xl-4">
+
+      <div class="card shadow rounded p-3 border-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item border-0">
+            <p class="fw-bold text-primary mb-0">Recibido:</p>
+            <p>{{message.createdAt.toMillis() | date:'fullDate'}}</p>
+          </li>
+          <li class="list-group-item border-0">
+            <p class="fw-bold text-primary mb-0">Enviado por:</p>
+            <p>{{message.fullName}}</p>
+          </li>
+          <li class="list-group-item border-0">
+            <p class="fw-bold text-primary mb-0">Correo electrónico:</p>
+            <p>{{message.email}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-xl-8">
+      <div class="card shadow rounded p-3 border-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item border-0">
+            <p class="fw-bold text-primary mb-0">Mensaje:</p>
+            <p>{{message.message}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

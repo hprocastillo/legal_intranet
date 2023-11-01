@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-6 vh-100 bg-dark pt-5 text-center">
+      <p class="display-1 text-white">LOGO</p>
+    </div>
+    <div class="col-xl-4 offset-xl-1 pt-5">
+      <div class="card shadow rounded border-0 p-3 m-auto text-center w-75">
+
+        <p class="fs-5">Iniciar sesión</p>
+        <br>
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+
+          <!-- EMAIL -->
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="emailInput"
+              placeholder="Correo electrónico"
+              formControlName="email"
+              required>
+            <label for="emailInput">Correo electrónico</label>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input
+                [type]="typeInput"
+                class="form-control"
+                id="passwordInput"
+                placeholder="Contraseña"
+                formControlName="password"
+                required>
+              <label for="passwordInput">Contraseña</label>
+            </div>
+            <button type="button" class="btn btn-dark" (click)="showPassword()">
+              <i class="bi bi-eye-fill" *ngIf="!password"></i>
+              <i class="bi bi-eye-slash-fill" *ngIf="password"></i>
+            </button>
+          </div>
+
+          <!-- BUTTON SUBMIT -->
+          <button type="submit" class="btn btn-dark w-100">
+            INGRESAR
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
